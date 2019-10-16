@@ -64,7 +64,14 @@ RUN apt-get update \
   && curl -sSL https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/stopwords.zip -o $NLTK_DATA/corpora/stopwords.zip \
   && unzip $NLTK_DATA/corpora/stopwords.zip -d $NLTK_DATA/corpora/ \
   && rm $NLTK_DATA/corpora/stopwords.zip \
-  && pip3 install --no-cache-dir "jupyter == 1.0.0"
+  && pip3 install --no-cache-dir "jupyter == 1.0.0" \
+  && pip3 install --no-cache-dir \
+  "jupyter_contrib_nbextensions == 0.5.1" \
+  "jupyter_nbextensions_configurator == 0.4.1" \
+  && jupyter contrib nbextension install \
+  && jupyter nbextensions_configurator enable
+
+COPY notebook.json /root/.jupyter/nbconfig/notebook.json
 
 COPY requirements.txt conf
 

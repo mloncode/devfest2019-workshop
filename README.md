@@ -24,23 +24,28 @@ Workshop given at [DevFest Nantes 2019](https://devfest.gdgnantes.com/sessions/u
 
 </details>
 
-## Setup
+Slides: on [gDrive](https://docs.google.com/presentation/d/1vF0JMagmXXzn-h-OaJu6CsDt78oSQSg58YFJsBUaHxk/edit#slide=id.g4f0d75b8b4_0_0)
 
-### With make
+OSS tools covered:
+ - [gitbase](https://docs.sourced.tech/gitbase)
+ - [bblfsh](https://doc.bblf.sh)
+ - [BigARTM](http://bigartm.org)
+ - [OpenNMT](http://opennmt.net)
 
-To build the workshop image and launch the 3 required containers
+## Prerequisites
+- Docker
 
-```shell
-make build-and-run
+## Dependencies
+
+Import Docker images (works offline):
+
 ```
+docker load -i images/jupyter.tgz
+docker load -i images/gitbase.tgz
+docker load -i images/bblfshd-with-drivers.tgz
 
-To only launch the 3 required containers
-
-```shell
-make
+docker images
 ```
-
-### Without make
 
 Run bblfsh
 
@@ -66,14 +71,8 @@ docker run \
     --link devfest_bblfshd:devfest_bblfshd \
     --env BBLFSH_ENDPOINT=devfest_bblfshd:9432 \
     --env MAX_MEMORY=1024 \
-    --volume /home/mog/work/devfest2019-workshop/repos:/opt/repos \
+    --volume $(pwd)/repos:/opt/repos \
     srcd/gitbase:v0.24.0-rc2
-```
-
-Build the jupyter image
-
-```shell
-docker build -t devfest .
 ```
 
 Run the jupyter image
@@ -85,7 +84,46 @@ docker run \
     --publish 8888:8888 \
     --link devfest_bblfshd:devfest_bblfshd \
     --link devfest_gitbase:devfest_gitbase \
-    --volume /home/mog/work/devfest2019-workshop/notebooks:/devfest/notebooks \
-    --volume /home/mog/work/devfest2019-workshop/repos:/devfest/repos \
+    --volume $(pwd)/notebooks:/devfest/notebooks \
+    --volume $(pwd)/repos:/devfest/repos \
     devfest
 ```
+
+<details>
+<summary>With make</summary>
+
+To build the workshop image and launch the 3 required containers
+
+```shell
+make build-and-run
+```
+
+To only launch the 3 required containers
+
+```shell
+make
+```
+</details>
+
+
+## Workflow
+
+### 1. Download the data
+
+We are going to use top XXX repositories from Apache Software Foundation though this workshop.
+
+[Notebook 1: data collection pipeline](#link to local jupyther)
+
+### 2. Project and Developer Similarities
+
+TBD
+
+[Notebook 2: project and developer similarities](#link to local jupyther)
+
+
+### 3. Function Name Suggestion
+
+TBD
+
+[Notebook 2: function name suggestion](#link to local jupyther)
+

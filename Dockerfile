@@ -71,7 +71,8 @@ RUN apt-get update \
   && jupyter contrib nbextension install \
   && jupyter nbextensions_configurator enable
 
-COPY notebook.json /root/.jupyter/nbconfig/notebook.json
+COPY jupyter-notebook-config.json /root/.jupyter/nbconfig/notebook.json
+COPY jupyter-server-config.json /root/.jupyter/jupyter_notebook_config.json
 
 COPY requirements.txt conf
 
@@ -79,4 +80,4 @@ RUN pip3 install --no-cache-dir -r conf/requirements.txt
 
 WORKDIR /devfest/notebooks
 
-ENTRYPOINT jupyter notebook --ip 0.0.0.0 --allow-root
+ENTRYPOINT jupyter notebook --ip 0.0.0.0 --allow-root --no-browser

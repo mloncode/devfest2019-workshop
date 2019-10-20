@@ -1,8 +1,16 @@
-# Understand your code with Machine Learning on Source Code
+# Understand your code with Machine Learning
 
 Workshop given at [DevFest Nantes 2019](https://devfest.gdgnantes.com/sessions/understand_your_code_with_machine_learning_on_source_code/).
 
-<details>
+Slides: on [gDrive](https://docs.google.com/presentation/d/1vF0JMagmXXzn-h-OaJu6CsDt78oSQSg58YFJsBUaHxk/edit#slide=id.g4f0d75b8b4_0_0)
+
+OSS tools covered:
+ - [gitbase](https://docs.sourced.tech/gitbase)
+ - [bblfsh](https://doc.bblf.sh)
+ - [BigARTM](http://bigartm.org)
+ - [OpenNMT](http://opennmt.net)
+
+ <details>
 <summary>Abstract</summary>
 
 > Machine Learning on Source Code (MLonCode) is an emerging and exciting research domain which stands at the sweet spot between deep learning, natural language processing, social science, and programming.
@@ -24,13 +32,6 @@ Workshop given at [DevFest Nantes 2019](https://devfest.gdgnantes.com/sessions/u
 
 </details>
 
-Slides: on [gDrive](https://docs.google.com/presentation/d/1vF0JMagmXXzn-h-OaJu6CsDt78oSQSg58YFJsBUaHxk/edit#slide=id.g4f0d75b8b4_0_0)
-
-OSS tools covered:
- - [gitbase](https://docs.sourced.tech/gitbase)
- - [bblfsh](https://doc.bblf.sh)
- - [BigARTM](http://bigartm.org)
- - [OpenNMT](http://opennmt.net)
 
 ## Prerequisites
 - Docker

@@ -30,7 +30,7 @@ gitbase: bblfshd
 			--link devfest_bblfshd:devfest_bblfshd \
 			--env BBLFSH_ENDPOINT=devfest_bblfshd:9432 \
 			--env MAX_MEMORY=1024 \
-			--volume $(PWD)/repos:/opt/repos \
+			--volume $(PWD)/repos/git-data:/opt/repos \
 			srcd/gitbase:v0.24.0-rc2
 
 jupyter-image:

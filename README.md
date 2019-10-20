@@ -5,10 +5,11 @@ Workshop given at [DevFest Nantes 2019](https://devfest.gdgnantes.com/sessions/u
 Slides: on [gDrive](https://docs.google.com/presentation/d/1vF0JMagmXXzn-h-OaJu6CsDt78oSQSg58YFJsBUaHxk/edit#slide=id.g4f0d75b8b4_0_0)
 
 OSS tools covered:
- - [gitbase](https://docs.sourced.tech/gitbase)
- - [bblfsh](https://doc.bblf.sh)
- - [BigARTM](http://bigartm.org)
- - [OpenNMT](http://opennmt.net)
+
+- [gitbase](https://docs.sourced.tech/gitbase)
+- [bblfsh](https://doc.bblf.sh)
+- [BigARTM](http://bigartm.org)
+- [OpenNMT](http://opennmt.net)
 
  <details>
 <summary>Abstract</summary>
@@ -32,8 +33,10 @@ OSS tools covered:
 
 </details>
 
+Slides: on [gDrive](https://docs.google.com/presentation/d/1vF0JMagmXXzn-h-OaJu6CsDt78oSQSg58YFJsBUaHxk/edit#slide=id.g4f0d75b8b4_0_0)
 
 ## Prerequisites
+
 - Docker
 
 ## Dependencies
@@ -72,7 +75,7 @@ docker run \
     --link devfest_bblfshd:devfest_bblfshd \
     --env BBLFSH_ENDPOINT=devfest_bblfshd:9432 \
     --env MAX_MEMORY=1024 \
-    --volume $(pwd)/repos:/opt/repos \
+    --volume $(pwd)/repos/git-data:/opt/repos \
     srcd/gitbase:v0.24.0-rc2
 ```
 
@@ -104,8 +107,8 @@ To only launch the 3 required containers
 ```shell
 make
 ```
-</details>
 
+</details>
 
 ## Workflow
 
@@ -121,10 +124,8 @@ TBD
 
 [Notebook 2: project and developer similarities](#link to local jupyther)
 
-
 ### 3. Function Name Suggestion
 
 TBD
 
 [Notebook 2: function name suggestion](#link to local jupyther)
-

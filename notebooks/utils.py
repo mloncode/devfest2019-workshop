@@ -1,11 +1,42 @@
 from enum import Enum
 import functools
+from os import makedirs
+from os.path import join as path_join
 import re
-from typing import Any, Dict, Iterator
+from typing import Any, Dict, Iterator, Union
 
 from pymysql import connect as pymysql_connect
 from pymysql.cursors import SSDictCursor
 import Stemmer
+
+
+class FilesABC:
+    # Used in notebooks to distinguish between files and dirs
+    # for the Run
+    pass
+
+
+class DirsABC:
+    # Used in notebooks to distinguish between files and dirs
+    # for the Run
+    pass
+
+
+class Run:
+    def __init__(self, notebook_name: str, run_name: str):
+        self._run_path = path_join("/devfest", "repos", notebook_name, run_name)
+
+    def path(self, file_or_dir: Union[FilesABC, DirsABC]):
+        if isinstance(file_or_dir, FilesABC):
+            dir_path = path_join(self._run_path, *file_or_dir.value[:-1])
+        elif isinstance(file_or_dir, DirsABC):
+            dir_path = path_join(self._run_path, *file_or_dir.value)
+        makedirs(dir_path, exist_ok=True)
+        return (
+            dir_path
+            if isinstance(file_or_dir, DirsABC)
+            else path_join(dir_path, file_or_dir.value[-1])
+        )
 
 
 SUPPORTED_LANGUAGES = [
@@ -317,6 +348,7 @@ class NoopTokenParser:
     def __call__(self, token):
         return self.process_token(token)
 
+
 DEFAULT = "\033[30m"
 WHITE = "\033[0m"
 RED = "\033[31m"
@@ -324,6 +356,7 @@ GREEN = "\033[32m"
 ORANGE = "\033[33m"
 BLUE = "\033[34m"
 PURPLE = "\033[35m"
+
 
 def colored_text_by_pos(text, colored_pos):
     if not colored_pos:
@@ -339,13 +372,18 @@ def colored_text_by_pos(text, colored_pos):
     if len(colored_pos_) > 1:
         for first, second in zip(colored_pos_[:-1], colored_pos_[1:]):
             col_pos.append(first)
-            col_pos.append(Colored(color=DEFAULT, position=(first.pos[1], second.pos[0])))
+            col_pos.append(
+                Colored(color=DEFAULT, position=(first.pos[1], second.pos[0]))
+            )
     col_pos.append(colored_pos_[-1])
-    col_pos.append(Colored(color=DEFAULT, position=(colored_pos_[-1].pos[1], len(text))))
+    col_pos.append(
+        Colored(color=DEFAULT, position=(colored_pos_[-1].pos[1], len(text)))
+    )
 
     for cp in col_pos:
-        res_text.append(cp.color + text[cp.pos[0]:cp.pos[1]])
+        res_text.append(cp.color + text[cp.pos[0] : cp.pos[1]])
     return "".join(res_text)
+
 
 class Colored:
     def __init__(self, color, position, start_offset=0):

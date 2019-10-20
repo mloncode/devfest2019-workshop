@@ -1,0 +1,3 @@
+youtokentome == 1.0.1
+OpenNMT-tf == 2.1.1
+coloredlogs == 10.0

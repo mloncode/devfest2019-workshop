@@ -74,9 +74,9 @@ RUN apt-get update \
 COPY jupyter-notebook-config.json /root/.jupyter/nbconfig/notebook.json
 COPY jupyter-server-config.json /root/.jupyter/jupyter_notebook_config.json
 
-COPY requirements.txt conf
-
-RUN pip3 install --no-cache-dir -r conf/requirements.txt
+COPY requirements*.txt conf/
+RUN pip3 install --no-cache-dir -r conf/requirements.txt \
+  && pip3 install --no-cache-dir -r conf/requirements-tf.txt
 
 WORKDIR /devfest/notebooks
 

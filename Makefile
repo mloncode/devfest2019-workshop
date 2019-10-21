@@ -34,7 +34,7 @@ gitbase: bblfshd
 			srcd/gitbase:v0.24.0-rc2
 
 jupyter-image:
-	docker build -t devfest .
+	docker build -t mloncode/devfest .
 
 jupyter: gitbase bblfshd
 	docker start devfest_jupyter > /dev/null 2>&1 \
@@ -46,7 +46,7 @@ jupyter: gitbase bblfshd
 		    --link devfest_gitbase:devfest_gitbase \
 		    --volume $(PWD)/notebooks:/devfest/notebooks \
 		    --volume $(PWD)/repos:/devfest/repos \
-		    devfest
+		    mloncode/devfest
 
 
 .PHONY: run build-and-run stop bblfshd gitbase jupyter-image jupyter

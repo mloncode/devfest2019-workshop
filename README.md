@@ -90,7 +90,7 @@ docker run \
     --link devfest_gitbase:devfest_gitbase \
     --volume $(pwd)/notebooks:/devfest/notebooks \
     --volume $(pwd)/repos:/devfest/repos \
-    devfest
+    mloncode/devfest
 ```
 
 <details>
@@ -114,18 +114,18 @@ make
 
 ### 1. Download the data
 
-We are going to use top XXX repositories from Apache Software Foundation though this workshop.
+We are going to use top 50 repositories from [Apache Software Foundation](https://www.apache.org) though this workshop.
 
-[Notebook 1: data collection pipeline](#link to local jupyther)
+[Notebook 1: data collection pipeline](http://127.0.0.1:8888/notebooks/Download%20repositories.ipynb)
 
 ### 2. Project and Developer Similarities
 
-TBD
+Build a vector model for projects and developers using [Topic Modelling](https://en.wikipedia.org/wiki/Topic_model) of code identifiers.
 
-[Notebook 2: project and developer similarities](#link to local jupyther)
+[Notebook 2: project and developer similarities](http://127.0.0.1:8888/notebooks/Project%20and%20Developer%20Similarity.ipynb)
 
 ### 3. Function Name Suggestion
 
-TBD
+Train a NMT [seq2seq model](https://towardsdatascience.com/nlp-sequence-to-sequence-networks-part-2-seq2seq-model-encoderdecoder-model-6c22e29fd7e1) for predicting method names based on identifiers in method bodies.
 
-[Notebook 2: function name suggestion](#link to local jupyther)
+[Notebook 2: function name suggestion](http://127.0.0.1:8888/notebooks/Name%20suggestion.ipynb)

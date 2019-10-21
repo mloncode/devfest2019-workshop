@@ -48,9 +48,9 @@ RUN apt-get update \
   libboost-timer-dev \
   make \
   python3-dev \
-  python3-pip \
   unzip \
   && ln -s /usr/bin/python3 /usr/local/bin/python \
+  && curl https://bootstrap.pypa.io/get-pip.py | python \
   && pip3 install --no-cache-dir -r conf/requirements-bigartm.txt \
   && git clone --branch v0.10.0 https://github.com/bigartm/bigartm.git /opt/bigartm \
   && mkdir /opt/bigartm/build \

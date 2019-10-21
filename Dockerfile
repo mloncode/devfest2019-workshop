@@ -14,6 +14,8 @@ ENV GITBASE_USERNAME root
 ENV GITBASE_PASSWORD ""
 ENV ARTM_SHARED_LIBRARY /usr/local/lib/libartm.so
 ENV NLTK_DATA /devfest/nltk_data
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 

@@ -2,7 +2,7 @@
 
 Workshop given at [DevFest Nantes 2019](https://devfest.gdgnantes.com/sessions/understand_your_code_with_machine_learning_on_source_code/).
 
-Slides: on [gDrive](https://docs.google.com/presentation/d/1vF0JMagmXXzn-h-OaJu6CsDt78oSQSg58YFJsBUaHxk/edit#slide=id.g4f0d75b8b4_0_0)
+Slides: on [gDrive](https://docs.google.com/presentation/d/1vF0JMagmXXzn-h-OaJu6CsDt78oSQSg58YFJsBUaHxk/edit)
 
 OSS tools covered:
 

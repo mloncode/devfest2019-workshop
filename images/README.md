@@ -20,6 +20,6 @@ docker save -o images/engine.tgz srcd/gitbase:v0.24.0-rc2
 Build the jupyter image:
 
 ```shell
-docker build -t devfest .
+docker build -t mloncode/devfest .
 docker save -o images/jupyter.tgz devfest
 ```

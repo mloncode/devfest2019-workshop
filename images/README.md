@@ -12,7 +12,7 @@ docker save -o images/bblfshd-with-drivers.tgz bblfsh/bblfshd:v2.15.0-drivers
 
 ```
 docker pull srcd/gitbase:v0.24.0-rc2
-docker save -o images/engine.tgz srcd/gitbase:v0.24.0-rc2
+docker save -o images/gitbase.tgz srcd/gitbase:v0.24.0-rc2
 ```
 
 # jupyter image
@@ -21,5 +21,5 @@ Build the jupyter image:
 
 ```shell
 docker build -t mloncode/devfest .
-docker save -o images/jupyter.tgz devfest
+docker save -o images/jupyter.tgz mloncode/devfest
 ```
